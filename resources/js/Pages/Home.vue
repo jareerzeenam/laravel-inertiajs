@@ -1,20 +1,19 @@
 <template>
-    <h1 class="text-4xl font-bold">Hello, {{ name }}</h1>
+    <Layout>
+        <h1 class="text-3xl font-bold">Hello, {{ name }}</h1>
 
-    <p>In thes series, we will use the following frameworks</p>
+        <p>In thes series, we will use the following frameworks</p>
 
-    <ul>
-        <li v-for="framework of frameworks" v-text="framework"></li>
-    </ul>
-
-    <Nav/>
-
+        <ul>
+            <li v-for="framework of frameworks" v-text="framework"></li>
+        </ul>
+    </Layout>
 </template>
 
 <script>
-    import Nav from "../Shared/Nav"
+    import Layout from "../Shared/Layout"
     export default {
-        components:{ Nav },
+        components:{ Layout },
         props:{
             name:String,
             frameworks:Array
