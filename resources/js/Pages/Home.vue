@@ -9,9 +9,7 @@
 </template>
 
 <script>
-    import Layout from "../Shared/Layout"
     export default {
-        layout:Layout,
         props:{
             name:String,
             frameworks:Array
