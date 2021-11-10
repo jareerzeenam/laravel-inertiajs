@@ -28,10 +28,18 @@ Route::get('/', function () {
 
 
 Route::get('/users', function () {
+
+    // return User::paginate(10);
     return Inertia::render('Users',[
         'time' => now()->toTimeString(),
-        'users' => User::all()->map(fn($user) => [
-            'name' => $user->name
+        // 'users' => User::all()->map(fn($user) => [
+        //     'id' => $user->id,
+        //     'name' => $user->name
+        // ]),
+        // 'users' => User::paginate(10),
+        'users' => User::paginate(10)->through(fn($user) => [
+                'id' => $user->id,
+                'name' => $user->name
         ]),
     ]);
 });
