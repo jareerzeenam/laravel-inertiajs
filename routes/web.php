@@ -31,7 +31,7 @@ Route::get('/', function () {
 Route::get('/users', function () {
 
     // return User::paginate(10);
-    return Inertia::render('Users',[
+    return Inertia::render('Users/Index',[
         'time' => now()->toTimeString(),
         // 'users' => User::all()->map(fn($user) => [
         //     'id' => $user->id,
@@ -55,6 +55,26 @@ Route::get('/users', function () {
 Route::get('/settings', function () {
     sleep(2);
     return Inertia::render('Settings');
+});
+
+Route::get('/users/create', function () {
+    return Inertia::render('Users/Create');
+});
+
+Route::post('/users', function () {
+    //validate request
+
+    $attributes = Request::validate([
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required',
+    ]);
+
+    //create user
+    User::create($attributes);
+
+    //redirect
+    return redirect('/users');
 });
 
 Route::post('/logout', function () {

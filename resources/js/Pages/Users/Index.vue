@@ -52,7 +52,7 @@
 <script setup>
 
 import { ref, watch } from "vue";
-import Pagination from "../Shared/Pagination"
+import Pagination from "../../Shared/Pagination"
 import {Inertia} from "@inertiajs/inertia";
 
 let  props = defineProps({
