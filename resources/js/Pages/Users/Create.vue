@@ -40,6 +40,10 @@
 
 import { useForm } from '@inertiajs/inertia-vue3';
 
+defineProps({
+    errors:Object
+});
+
 let form = useForm({
     name:"",
     email:"",
